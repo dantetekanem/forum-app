@@ -1,0 +1,31 @@
+h2
+  = @topic.title
+  = link_to 'Back to board', board_path(@topic.board), class: 'btn btn-primary float-right'
+hr
+
+= render partial: 'post', collection: @posts
+= will_paginate @posts
+
+br
+= form_for @topic.posts.build, url: board_topic_posts_path(topic_id: @topic.slug, board_id: @topic.board.slug) do |f|
+  .form-group
+    h3 Post
+    = f.text_area :content, class: 'form-control simple-mde'
+
+  .actions
+    = f.submit 'Reply', class: 'btn btn-primary'
+
+= form_for :post, url: '', method: :patch, html: {id: 'post_edit'} do |f|
+  .modal.fade id="post_edit_modal" tabindex="-1" role="dialog" aria-hidden="true"
+    .modal-dialog.modal-lg role="document"
+      .modal-content
+        .modal-header
+          h2.modal-title Editing post
+          button.close type="button" data-dismiss="modal" aria-label="close"
+            span aria-hidden="true" &times;
+        .modal-body
+          .form-group
+            = f.text_area :content, id: 'post_edit_content', class: 'form-control simple-mde'
+        .modal-footer
+          button.btn.btn-secondary type="button" data-dismiss="modal" Close
+          = f.submit 'Update post', class: 'btn btn-primary'

@@ -1,0 +1,12 @@
+h2 Notifications Central
+
+table.table
+  thead
+    tr
+      th Message
+      th Date
+  tbody
+    - @notifications.each do |notification|
+      tr class="#{notification.readed? ? '' : 'bg-warning'}"
+        td = link_to notification.message, notification_path(notification)
+        td = "#{time_ago_in_words(notification.created_at)} ago"

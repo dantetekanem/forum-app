@@ -1,0 +1,9 @@
+topic_one:
+  board: board_one
+  user: jamie
+  title: A lannister always pays his debts.
+
+topic_two:
+  board: board_one
+  user: jon
+  title: Someone saw my wolf?

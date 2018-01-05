@@ -1,0 +1,14 @@
+post_one:
+  user: jamie
+  topic: topic_one
+  content: Why we keep doing that?
+
+post_two:
+  user: jon
+  topic: topic_two
+  content: Please, I'm really worried.
+
+post_three:
+  user: jamie
+  topic: topic_two
+  content: Sorry to hear about that, bro.

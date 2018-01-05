@@ -1,0 +1,17 @@
+h2 Create new topic for #{@board.name}
+hr
+
+= form_for @topic, url: board_topics_path(board_id: @board.slug) do |f|
+  .form-group
+    = f.label :title
+    = f.text_field :title, required: true, class: 'form-control'
+
+  .form-group
+    = f.label :content
+    = f.text_area :content, rows: 10, class: 'form-control simple-mde'
+
+  .actions
+    = f.submit 'Create topic', class: 'btn btn-primary'
+
+hr
+= link_to 'Back', board_path(@board), class: 'btn btn-danger'

@@ -1,0 +1,11 @@
+.card
+  h3.card-title= board.name
+  p.card-text= board.description
+  hr
+  => "#{link_to 'View board', board_path(board)} | Topics: #{board.topics.count} | Posts: #{board.posts.count}".html_safe
+  - if policy(board).update?
+    '|
+    => link_to "Edit board", edit_board_path(board)
+    '|
+  - if policy(board).destroy?
+    = link_to "Destroy board", board_path(board), method: :delete, data: {confirm: "Are you sure?"}

@@ -1,0 +1,36 @@
+.row
+  .col-lg-2
+  .col-lg-8
+    h2 Sign Up
+    p Welcome to the Forum App, please create a new registration to enjoy our app.
+
+    = form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
+      = devise_error_messages!
+
+      .form-group
+        = f.label :name
+        = f.text_field :name, autofocus: true, class: 'form-control'
+
+      .form-group
+        = f.label :email
+        = f.email_field :email, class: 'form-control'
+        small We will never share your e-mail with anyone else.
+
+      .form-group
+        = f.label :username
+        = f.text_field :username, class: 'form-control'
+        small Your unique username.
+
+      .form-group
+        = f.label :password
+        = f.password_field :password, autocomplete: 'off', class: 'form-control'
+
+      .form-group
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
+
+      .actions
+        = f.submit 'Sign Up', class: 'btn btn-primary'
+
+    = render "devise/shared/links"
+  .col-lg-2

@@ -1,0 +1,9 @@
+- if @boards.any?
+  - if policy(:board).create?
+    p.text-right = link_to 'Create new board', new_board_path, class: 'btn btn-primary'
+
+  = render partial: "board_card", collection: @boards, as: :board
+- else
+  h3 We dont have any board available. :(
+  - if policy(:board).create?
+    h4 Please, #{link_to 'create your first board', new_board_path}.

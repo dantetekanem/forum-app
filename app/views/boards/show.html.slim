@@ -1,0 +1,10 @@
+h2
+  = @board.name
+  - if policy(@board).update?
+    = link_to 'Destroy board', board_path(@board), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn float-right'
+    = link_to 'Edit board', edit_board_path(@board), class: 'btn float-right'
+  = link_to 'Create new topic', new_board_topic_path(board_id: @board.slug), class: 'btn btn-primary float-right'
+hr
+
+= render partial: 'topic_card', collection: @topics, as: :topic
+= will_paginate @topics

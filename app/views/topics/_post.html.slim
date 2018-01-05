@@ -1,0 +1,19 @@
+.row
+  .col-lg-3.border-right
+    h4 = post.user.name
+    h5 = "@#{post.user.username}"
+    small = "created #{time_ago_in_words(post.created_at)} ago"
+    - if post.edited?
+      br
+      small = "edited #{time_ago_in_words(post.edited_at)} ago"
+    br
+    - if policy(post).update?
+      hr
+      = link_to 'Edit post', 'javascript:;', data: {behaviour: 'edit-post', update_url: board_topic_post_path(post, topic_id: post.topic.slug, board_id: post.board.slug), fetch_url: fetch_board_topic_post_path(post, topic_id: post.topic.slug, board_id: post.board.slug)}
+      = " | "
+      = link_to 'Delete post', board_topic_post_path(post, topic_id: post.topic.slug, board_id: post.board.slug), method: :delete, data: {confirm: 'Are you sure?'}
+
+  .col-lg-9
+    a name="post-#{post.id}"
+    = Transpile.text(post.content).html_safe
+hr

@@ -1,0 +1,4 @@
+board_one:
+  name: Board one
+  description: Complete board name
+  slug: board-one

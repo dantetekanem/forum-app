@@ -1,0 +1,10 @@
+- if @user.nil?
+  h1 User not found.
+- else
+  h1 = @user.name
+  p #{t("user.role.#{@user.role}")} since #{l(@user.created_at.to_date, format: :long)}
+  b @#{@user.username}
+  p
+    span Posts count: #{@user.posts.count}
+    br
+    span Topics count: #{@user.topics.count}

@@ -21,6 +21,13 @@ RSpec.feature "Sign up", type: :feature do
   end
 
   scenario "Sign up with same email" do
+    User.create(
+      name: name,
+      email: email,
+      username: username,
+      password: password,
+      password_confirmation: password
+    )
     sign_up_with(name, email, username + '2', password, password)
 
     expect(page).to have_content('1 error prohibited')

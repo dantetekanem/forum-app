@@ -23,18 +23,6 @@ class TopicsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-  end
-
-  def close
-  end
-
-  def destroy
-  end
-
   private
 
   def find_board

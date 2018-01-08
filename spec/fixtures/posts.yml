@@ -4,11 +4,16 @@ post_one:
   content: Why we keep doing that?
 
 post_two:
+  user: jamie
+  topic: topic_one
+  content: Blame GRRM for that one.
+
+post_three:
   user: jon
   topic: topic_two
   content: Please, I'm really worried.
 
-post_three:
+post_four:
   user: jamie
   topic: topic_two
   content: Sorry to hear about that, bro.
